@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+<link th:href="@{/dist/css/makeAtt.css}" rel="stylesheet"  >
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.0/dist/bootstrap-table.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<title>make apelle</title>
+</head>
+<body>
+
+<div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>Make today's class attendance</h3>
+                        <p>Call students and check the checkboxes.</p>
+                        
+                        <form th:action="@{/teacherpanel}" class="requires-validation" novalidate  th:object="${attendance}"  method="POST">
+                        
+                            <div class="col-md-12">
+                            <input type="date" th:value="${AttDate}"  name="mydate" class="form-control" id="midate">
+                        <select id="miday" th:value="${AttDay}">
+                          <option selected="selected">select day of the week</option>
+                          <option>Monday</option>
+                          <option>Tuesday</option>
+                          <option>wednesday</option>
+                          <option>Thursday</option>
+                          <option>Friday</option>
+                        </select>
+                               <div class="myTable">
+        <table data-toggle="table"
+        class="filterTable"
+        data-toolbar="#toolbar"
+        data-show-refresh="true"
+        data-show-toggle="true"
+        data-show-fullscreen="true"
+        data-show-columns="true"
+        data-show-columns-toggle-all="true"
+        data-detail-view="false"
+        data-pagination="true"
+      
+        >
+          <thead>
+            <tr>
+         
+                <th  scope="col" class="table-head">Student Name</th>
+                <th  scope="col" class="table-head">Grade</th>
+                <th  scope="col" class="table-head" th:text="${T(com.example.Attendance.model.AttStatus).present}" style="width:50%;">
+                <input type="checkbox" id="select_all"></th>
+                <th  scope="col" class="table-head" th:text="${T(com.example.Attendance.model.AttStatus).abscent}" ><input type="checkbox" id="select_all_abscent"></th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr th:each="att:${attendance}">
+          <td><input th:value="${att.studentName}" ></td>
+          <td><input th:value="${att.Grade}" ></td>
+          <td><input type="checkbox" class="checkbox" th:value="${att.Status}"></td>
+          <td><input type="checkbox" class="checkbox" th:value="${att.Status}"></td>
+          </tr>
+          </tbody>
+        </table>
+          </div>
+                            </div>
+                            <div class="form-button mt-3">
+                                <button id="submit" type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+    <script type="text/javascript">  
+    $(document).ready(function(){
+        $('#select_all').on('click',function(){
+            if(this.checked){
+                $('.checkbox').each(function(){
+                    this.checked = true;
+                });
+            }else{
+                 $('.checkbox').each(function(){
+                    this.checked = false;
+                });
+            }
+        });
+        
+        $('.checkbox').on('click',function(){
+            if($('.checkbox:checked').length == $('.checkbox').length){
+                $('#select_all').prop('checked',true);
+            }else{
+                $('#select_all').prop('checked',false);
+            }
+        });
+    });
+    </script>
+     <script type="text/javascript">
+    
+    var now = new Date();
+   
+   var inputElementDate = document.getElementsByName("mydate")[0];
+   
+   inputElementDate.value = now.getUTCFullYear() + "-" + ("0" + now.getMonth()).slice(-2) + "-" + ("0" + now.getDate()).slice(-2);
+
+ </script>
+     
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" ></script>
+    <script src="https://unpkg.com/bootstrap-table@1.21.0/dist/bootstrap-table.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-table@1.21.0/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+	
+</body>
+</html>

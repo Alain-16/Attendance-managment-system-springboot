@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance</title>
+</head>
+<body>
+  <div class="container" th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Attendance</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" th:href="@{/grade}">Grade</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" th:href="@{/teacher}">Teacher</a>
+          </li>
+         <li class="nav-item active">
+           <a class="nav-link" th:href="@{/student}">Student</a>
+         </li>
+         <li class="nav-item active">
+          <a class="nav-link" th:href="@{/attendance}">Attendance</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Logout</a>
+        </li>
+        </ul>
+      </div>
+    </nav>
+    </div>
+</body>
+</html>
+
+
+

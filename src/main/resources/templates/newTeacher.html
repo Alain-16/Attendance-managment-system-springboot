@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/dist/css/registration.css}">
+    <title>Registration</title>
+</head>
+<body>
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+          <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+              <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                <div class="card-body p-4 p-md-5">
+                  <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Teacher Registration Form</h3>
+                  <form class="requires-validation" novalidate th:action="@{/teacher}" th:object="${myteachers}" method="POST">
+      
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+      
+                        <div class="form-outline">
+                          <input type="text" class="form-control form-control-lg" th:field="*{teacherName}"/>
+                          <label class="form-label" >Teacher Name</label>
+                        </div>
+      
+                      </div>
+                      <div class="col-md-6 mb-4">
+      
+                        <div class="form-outline">
+                          <input type="password"  class="form-control form-control-lg" th:field="*{password}"/>
+                          <label class="form-label">Password</label>
+                        </div>
+      
+                      </div>
+                    </div>
+      
+                    <div class="row">
+                      <div class="col-md-6 mb-4 d-flex align-items-center">
+      
+                        <div class="form-outline datepicker w-100">
+                          <input type="text" class="form-control form-control-lg"  th:field="*{Address}"/>
+                          <label class="form-label">Address</label>
+                        </div>
+      
+                      </div>
+                      <div class="col-md-6 mb-4">
+      
+                        <h6 class="mb-2 pb-1">Gender: </h6>
+      					
+      					<select class="select form-control-lg" th:field="*{Gender}">
+                          <option value="no gender" selected>Choose Gender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                          <option value="other">Other</option>
+                        </select>
+                        <label class="form-label select-label">Choose Gender</label>
+                  
+      
+                      </div>
+                    </div>
+      
+                    <div class="row">
+                      <div class="col-md-6 mb-4 pb-2">
+      
+                        <div class="form-outline">
+                          <input type="text"  class="form-control form-control-lg"  th:field="*{Email}"/>
+                          <label class="form-label">Email</label>
+                        </div>
+      
+                      </div>
+                      <div class="col-md-6 mb-4 pb-2">
+      
+                        <div class="form-outline">
+                          <input type="text" class="form-control form-control-lg" th:field="*{Residance}"/>
+                          <label class="form-label">Residence</label>
+                        </div>
+      
+                      </div>
+                      <div class="col-md-6 mb-4 pb-2">
+      
+                        <div class="form-outline">
+                          <input type="text"  class="form-control form-control-lg" th:field="*{Qualification}"/>
+                          <label class="form-label">Qualification</label>
+                        </div>
+      
+                      </div>
+                      <div class="col-md-6 mb-4 pb-2">
+      
+                        <div class="form-outline">
+                          <input type="date"  class="form-control form-control-lg" th:field="*{joinDate}"/>
+                          <label class="form-label">Join Date</label>
+                        </div>
+      
+                      </div>
+                    </div>
+      
+                    <div class="row">
+                      <div class="col-12">
+      
+                        <select class="select form-control-lg" th:field="*{Grade}">
+                        		 <option value="Please select grade" selected>Please select teacher's class....</option>
+                         		 <option th:value="S1">S1</option>
+  								 <option th:value="S2">S2</option>
+  								 <option th:value="S3">S3</option>
+  								 <option th:value="S4MCE">S4MCE</option>
+  								 <option th:value="S4MEG">S4MEG</option>
+  								 <option th:value="S4MCB">S4MCB</option>
+  								 <option th:value="S4PCM">S4PCM</option>
+  								 <option th:value="S4MPC">S4MPC</option>
+  								 <option th:value="S5MCE">S5MCE</option>
+  								 <option th:value="S5MEG">S5MEG</option>
+  								 <option th:value="S5MCB">S5MCB</option>
+  								 <option th:value="S5PCM">S5PCM</option>
+  								 <option th:value="S6MCE">S6MCE</option>
+  								 <option th:value="S6MEG">S6MEG</option>
+  								 <option th:value="S6MCB">S6MCB</option>
+  								 <option th:value="S6PCM">S6PCM</option>
+                        </select>
+                        <label class="form-label select-label">Choose class</label>
+      
+                      </div>
+                    </div>
+      
+                    <div class="mt-4 pt-2">
+                      <input class="btn btn-primary btn-lg" type="submit" value="Register" />
+                    </div>
+      
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+</body>
+</html>

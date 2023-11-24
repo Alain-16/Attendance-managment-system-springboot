@@ -1,0 +1,42 @@
+
+
+body {
+    overflow: hidden; /* Hide scrollbars */
+  }
+
+
+.navbar{
+   position: relative;
+   left: -213px;
+   width: 200%;
+}
+
+.myHeader{
+       position: relative;
+       top: 20px;
+       left: 20px;
+}
+
+.display-4{
+    font-size: 30px;
+}
+.Tablecontainer{
+    position: relative;
+    top: -100px;
+}
+.Tablecontainer .table{
+    width: 100%;
+}
+
+
+.myExport{
+    position: relative;
+    left: 190px;
+    top: 40px;
+}
+.myTable{
+    width: 1050px;
+    position: relative;
+    left: 190px;
+    top: 40px;
+}

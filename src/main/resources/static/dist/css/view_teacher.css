@@ -1,0 +1,42 @@
+
+
+body {
+    overflow: hidden; /* Hide scrollbars */
+  }
+  
+.navbar{
+   position: relative;
+   left: -213px;
+   width: 200%;
+}
+
+.row{
+    position:relative;
+    top:20px;
+    left:40px;;
+}
+.myHeader{
+       position: relative;
+       top: 20px;
+       left: 20px;
+}
+.col-lg-3{
+    position:relative;
+    top:30px;
+}
+.display-4{
+    font-size: 30px;
+}
+
+
+.myExport{
+    position: relative;
+    left: 150px;
+    top: 5px;
+}
+.myTable{
+    width: 80%;
+    position: relative;
+    left: 190px;
+    top: -20px;
+}
